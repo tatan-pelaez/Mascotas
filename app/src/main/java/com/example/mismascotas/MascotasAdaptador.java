@@ -3,8 +3,10 @@ package com.example.mismascotas;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,7 +33,9 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Co
         Mascots contacto = mascotas.get(position);
         contactoViewholder.imgFoto.setImageResource(contacto.getFoto());
         contactoViewholder.tvNombreCV.setText(contacto.getNombre());
+
     }
+
 
     @Override
     public int getItemCount() { //Cantidad de elementos que contiene mi lista
@@ -42,11 +46,13 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Co
 
         private ImageView imgFoto;
         private TextView tvNombreCV;
+        private ImageButton btnlike;
 
         public ContactoViewHolder( View itemView) {
             super(itemView);
             imgFoto         = (ImageView) itemView.findViewById(R.id.fotoMascota);
             tvNombreCV      = (TextView) itemView.findViewById(R.id.textMascota);
+            btnlike         = (ImageButton) itemView.findViewById(R.id.btnlike);
         }
     }
 }
