@@ -2,34 +2,61 @@ package com.example.mismascotas;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.material.tabs.TabLayout;
+
 import java.util.ArrayList;
 
+import Adapter.MascotasAdaptador;
+import Adapter.PageAdapter;
+import fragment.PerfilFragment;
+import fragment.RecyclerViewFragment;
+import pojo.Mascots;
+
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Mascots> mascotas;
-    private RecyclerView listaMascotas;
+
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar miActionBar = (Toolbar)findViewById(R.id.miActionBar);
-        setSupportActionBar(miActionBar);
+        //Toolbar miActionBar = (Toolbar)findViewById(R.id.miActionBar);
+        //setSupportActionBar(miActionBar);
 
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        tabLayout = (TabLayout)findViewById(R.id.tablayout);
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        setUpViewpager();
 
-        listaMascotas.setLayoutManager(llm);
-        inicializarListaMascotas();
-        inicializarAdaptador();
+
+         if(toolbar != null){
+             setSupportActionBar(toolbar);
+         }
+    }
+
+    private ArrayList<Fragment> agregarFragment(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new PerfilFragment());
+
+        return fragments;
+    }
+
+    private  void setUpViewpager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragment()));
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     public void irSegundaActividad(View v){
@@ -37,17 +64,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(inte);
     }
 
-    public void inicializarAdaptador(){
-        MascotasAdaptador adaptador = new MascotasAdaptador(mascotas);
-        listaMascotas.setAdapter(adaptador);
-    }
 
-    public void inicializarListaMascotas(){
-        mascotas = new ArrayList<>();
-        mascotas.add(new Mascots("Lucas",R.drawable.adorable_perro_sentado_dibujos_animados_74769_13,"5"));
-        mascotas.add(new Mascots("Copito",R.drawable.c2b775993bc259703cc20f244091a84e,"3"));
-        mascotas.add(new Mascots("Naruto",R.drawable.el_gato_de_pinocho_figaro_nombre_gato_dibujo_animado_300x300_1,"3"));
-        mascotas.add(new Mascots("Simon",R.drawable.perro1,"3"));
-        mascotas.add(new Mascots("Winstong",R.drawable.f36883f77619c6563f50ebf0a3f89c2e,"4"));
-    }
 }

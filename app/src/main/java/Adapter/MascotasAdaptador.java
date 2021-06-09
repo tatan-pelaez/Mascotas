@@ -1,4 +1,4 @@
-package com.example.mismascotas;
+package Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,9 +6,11 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import pojo.Mascots;
+import com.example.mismascotas.R;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.mismascotas;
+package pojo;
 
 public class Mascots {
     private String nombre;
