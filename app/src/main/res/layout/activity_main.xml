@@ -14,14 +14,14 @@
         android:theme="@style/Theme.MisMascotas"
         >
 
-        <Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
             app:layout_scrollFlags="scroll|enterAlways"
             >
 
-        </Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"

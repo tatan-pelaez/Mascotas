@@ -3,12 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragment.PerfilFragment">
+    tools:context="fragment.PerfilFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/adorable_perro_sentado_dibujos_animados_74769_13"
+        />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="Nombre: Lucas"
+        android:layout_marginTop="370dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Raza: Criollo"
+        android:layout_marginTop="390dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dueño: Jhonatan Peláez Magnoler"
+        android:layout_marginTop="410dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Likes: 5"
+        android:layout_marginTop="430dp"/>
 
 </FrameLayout>
